@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sulogoonv2_app/widgets/custom_text_field.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -8,8 +9,26 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  TextEditingController userController = TextEditingController();
+  TextEditingController passController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: [
+        CustomTextField(
+          controller: userController,
+          data: Icons.person,
+          hintText: "Username",
+          isObscure: false,
+        ),
+        CustomTextField(
+          controller: passController,
+          data: Icons.password,
+          hintText: "Password",
+          isObscure: true,
+        ),
+      ],
+    );
   }
 }
