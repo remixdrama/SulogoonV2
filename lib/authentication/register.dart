@@ -40,6 +40,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   getCurrentLocation() async {
     Position newPosition = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high,
+      // desiredAccuracy: LocationAccuracy.bestForNavigation,
     );
 
     position = newPosition;
@@ -51,7 +52,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     Placemark pMark = placeMarks![0];
 
     String completeAddress =
-        '${pMark.subThoroughfare} ${pMark.thoroughfare},${pMark.subLocality} ${pMark.locality}, ${pMark.subAdministrativeArea},${pMark.administrativeArea} ${pMark.postalCode}, ${pMark.country}';
+        // '${pMark.subThoroughfare} ${pMark.thoroughfare},${pMark.subLocality} ${pMark.locality}';
+        '${pMark.name} , ${pMark.locality}';
     locationController.text = completeAddress;
   }
 
@@ -126,7 +128,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     controller: locationController,
                     hintText: "My Address",
                     isObscure: false,
-                    enabled: false,
+                    enabled: true,
                   ),
                   const SizedBox(
                     height: 10,
