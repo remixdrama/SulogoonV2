@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "667134640368",
+    "project_id": "sulogoonv2-app",
+    "storage_bucket": "sulogoonv2-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667134640368:android:31a805de413d389f7a4235",
+        "android_client_info": {
+          "package_name": "com.remix.sulogoonv2app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667134640368-9jg80elnmdrjo5bekhfq0t5fd5c4dvca.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcxxLm6iJrMbMvVHMzKVAl1E9_wg02vbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667134640368-9jg80elnmdrjo5bekhfq0t5fd5c4dvca.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

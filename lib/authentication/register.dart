@@ -8,6 +8,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sulogoonv2_app/widgets/custom_text_field.dart';
 
+import '../widgets/error_dialog.dart';
+
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
@@ -55,6 +57,42 @@ class _RegisterScreenState extends State<RegisterScreen> {
         // '${pMark.subThoroughfare} ${pMark.thoroughfare},${pMark.subLocality} ${pMark.locality}';
         '${pMark.name} , ${pMark.locality}';
     locationController.text = completeAddress;
+  }
+
+  Future<void> formValidation() async {
+    if (imageXFile == null) {
+      showDialog(
+          context: context,
+          builder: (c) {
+            return ErrorDialog(
+              message: "Please select an image.",
+            );
+          });
+    } else {
+      if (passwordController.text == confirmPasswordController.text) {
+        if (confirmPasswordController.text.isNotEmpty &&
+            emailController.text.isNotEmpty &&
+            nameController.text.isNotEmpty &&
+            phoneController.text.isNotEmpty) {
+        } else {
+          showDialog(
+              context: context,
+              builder: (c) {
+                return ErrorDialog(
+                  message: "Please complete required info for Registration",
+                );
+              });
+        }
+      } else {
+        showDialog(
+            context: context,
+            builder: (c) {
+              return ErrorDialog(
+                message: "Password do not match",
+              );
+            });
+      }
+    }
   }
 
   @override
@@ -180,7 +218,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
               ),
-              onPressed: () => print("sign-up test"),
+              onPressed: () {
+                formValidation();
+              },
             ),
             const SizedBox(
               height: 50,
